@@ -1,16 +1,12 @@
-import { extendTheme } from "@chakra-ui/react";
-import Link from "next/link";
+import { theme as proTheme } from '@chakra-ui/pro-theme'
+import { extendTheme, theme as baseTheme } from '@chakra-ui/react'
+import '@fontsource/inter/variable.css'
 
-const theme = extendTheme({
-  styles: {
-    global: {      
-      ".js-focus-visible :focus:not([data-focus-visible-added])": {
-        
-      },
-    },
+export const theme = extendTheme(
+  {
+    colors: { ...baseTheme.colors, brand: baseTheme.colors.blue },
   },
- components: {
-    Link,
-  },
-});
-export default theme;
+  proTheme
+)
+
+export default theme

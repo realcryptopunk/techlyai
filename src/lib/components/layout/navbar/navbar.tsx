@@ -78,6 +78,8 @@ export default function Navbar() {
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
+            <Link href={"https://tally.so/r/w4a5Ar"}>
+            
             <Button
               variant={"solid"}
               colorScheme={"teal"}
@@ -87,6 +89,7 @@ export default function Navbar() {
             >
               Submit A Tool
             </Button>
+            </Link>
             <ColorModeSwitcher />
           </Flex>
         </Flex>

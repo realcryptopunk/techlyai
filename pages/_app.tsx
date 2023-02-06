@@ -9,13 +9,17 @@ import { ChakraProvider, Container } from '@chakra-ui/react'
 
 
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
 
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
+     
  
       <Layout>
+    
         <Component {...pageProps} />
+
       </Layout>
 
     </ChakraProvider>

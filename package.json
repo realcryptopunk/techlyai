@@ -7,9 +7,13 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/pro-theme": "^0.0.63",
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/inter": "^4.5.15",
+    "@splinetool/react-spline": "^2.2.5",
+    "@splinetool/runtime": "^0.9.210",
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3",
     "focus-visible": "^5.2.0",
@@ -22,6 +26,7 @@
     "react-icons": "^4.7.1"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^2.3.0",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

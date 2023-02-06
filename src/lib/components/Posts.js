@@ -24,7 +24,7 @@ const Post = ({ slug, coverImage, title, excerpt, author, publishedAt, category 
      _focus={{ boxShadow: "outline" }}
       rounded={"lg"}
       boxShadow="2xl" 
-      _hover={{bg: useColorModeValue("blue.50", "blue.700")}}
+      _hover={{bg: useColorModeValue("blue.10", "blue.700")}}
       height="full"
     
     >
@@ -50,15 +50,20 @@ const Post = ({ slug, coverImage, title, excerpt, author, publishedAt, category 
               </Badge>
             </Box>
             <Box>
-                <Text size="xs" fontWeight="bold">{title}</Text>
+            <Heading
+            color={useColorModeValue('gray.700', 'white')}
+            fontSize={'2xl'}
+            fontFamily={'body'}>
+            {title}
+          </Heading>
                 <Text>{excerpt}</Text>
             </Box>
       </Stack>
-         <HStack>
+         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
              <Box>
               <Button fontWeight="medium">Learn More</Button>
              </Box>
-         </HStack>
+         </Stack>
       </Stack>
     </Box>
   </Link>
