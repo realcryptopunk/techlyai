@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import Layout from '../src/lib/components/layout/layout'
 import * as React from 'react'
 import theme from '../styles/customTheme/theme'
+import Footer from '../src/lib/components/Footer'
 
 import { ChakraProvider, Container } from '@chakra-ui/react'
 
@@ -15,13 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     <ChakraProvider theme={theme}>
      
- 
       <Layout>
-    
         <Component {...pageProps} />
-
       </Layout>
-
     </ChakraProvider>
 
   )

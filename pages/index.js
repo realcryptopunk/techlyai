@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import marked from 'marked';
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Container, SimpleGrid, Button, Box } from "@chakra-ui/react";
 import getPosts from '../src/lib/services/getPosts';
 import Post from '../src/lib/components/Posts';
 import Navbar from '../src/lib/components/layout/navbar/navbar';
@@ -27,7 +28,14 @@ export async function getStaticProps() {
   };
 }
 
+
 export default function Home({ posts }) {
+  const [visible, setVisible] = useState(6);
+
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 6);
+  };
+
   return(
   <Container 
    maxWidth="7xl" pb={1}>
@@ -46,7 +54,7 @@ export default function Home({ posts }) {
       
       columns={[1, 2, 3]} spacing="10" pt={8} >
    
-      {posts.map((post, i) => {
+      {posts?.slice(0,visible).map((post, i) => {
       const { data } = post;
     // eslint-disable-next-line react/no-array-index-key
         return( 
@@ -61,8 +69,18 @@ export default function Home({ posts }) {
          />
        );
       })} 
+  
+       
+  
+
              
       </SimpleGrid>
+      <Box mt="10" align="center" justify="center">
+        <Button 
+      onClick={showMoreItems} >
+          Load More
+     </Button>
+        </Box>
     </Container>
   );
    }
