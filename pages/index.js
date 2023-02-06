@@ -3,13 +3,11 @@ import marked from 'marked';
 import { Container, SimpleGrid } from "@chakra-ui/react";
 import getPosts from '../src/lib/services/getPosts';
 import Post from '../src/lib/components/Posts';
-import Navbar from '../src/lib/components/layout/navbar/navbar';
-import pageillustration from '../src/lib/components/pageillustration';
+
 export async function getStaticProps() {
   let posts;
   try {
     const allPostsFromAirtable = await getPosts();
-    console.log("Airtable", allPostsFromAirtable);
     posts = allPostsFromAirtable.map((post) => {
       return {
         slug: "test slug",
