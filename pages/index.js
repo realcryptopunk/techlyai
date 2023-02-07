@@ -5,7 +5,8 @@ import { Container, SimpleGrid, Button, Box } from "@chakra-ui/react";
 import getPosts from '../src/lib/services/getPosts';
 import Post from '../src/lib/components/Posts';
 import Navbar from '../src/lib/components/layout/navbar/navbar';
-import pageillustration from '../src/lib/components/pageillustration';
+import Sphere from '../src/lib/components/Sphere';
+
 export async function getStaticProps() {
   let posts;
   try {
@@ -43,9 +44,6 @@ export default function Home({ posts }) {
         className="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1"
         aria-hidden="true"
       >
-        <pageillustration>
-          
-        </pageillustration>
 
       </div>
     
@@ -75,7 +73,7 @@ export default function Home({ posts }) {
 
              
       </SimpleGrid>
-      <Box mt="10" align="center" justify="center">
+      <Box mt="10" mb="10" align="center" justify="center">
         <Button 
       onClick={showMoreItems} >
           Load More

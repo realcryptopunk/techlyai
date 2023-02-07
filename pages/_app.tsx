@@ -5,6 +5,8 @@ import Layout from '../src/lib/components/layout/layout'
 import * as React from 'react'
 import theme from '../styles/customTheme/theme'
 import Footer from '../src/lib/components/Footer'
+import Heropage from '../src/lib/components/Heropage'
+import Sphere from '../src/lib/components/Sphere'
 
 import { ChakraProvider, Container } from '@chakra-ui/react'
 
@@ -17,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
      
       <Layout>
+        <Heropage></Heropage>
         <Component {...pageProps} />
       </Layout>
     </ChakraProvider>
