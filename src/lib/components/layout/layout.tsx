@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Heropage from "../Heropage";
 import Navbar from "./navbar/navbar";
 
 interface ILayoutProps {

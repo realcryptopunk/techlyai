@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
      
       <Layout>
-        <Heropage></Heropage>
         <Component {...pageProps} />
       </Layout>
     </ChakraProvider>

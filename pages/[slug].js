@@ -3,6 +3,7 @@ import { Button,Badge,Stack,Text,Container,Image,Box } from "@chakra-ui/react";
 import Link from "next/link";
 import { relative } from "path";
 import {getPosts, getPostBySlug, getAllPosts} from '../src/lib/services/getPosts';
+import Post from '../src/lib/components/Posts';
 
 
 
@@ -68,6 +69,7 @@ export async function getStaticPaths() {
             src=
               {data.toolImg}
             alt={data.title}
+            borderRadius = {10}
             layout={'fill'}
           /> 
          <Badge

@@ -54,7 +54,7 @@ export default function Navbar() {
 
   return (
     <div className={navStyles.mobileNav}>
-      <Box bg={useColorModeValue("blue.100", "blue.900")} px={4}>
+      <Box  px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -82,7 +82,8 @@ export default function Navbar() {
             
             <Button
               variant={"solid"}
-              colorScheme={"teal"}
+              bgGradient='linear(to-l, #7928CA, #FF0080)'
+                bgClip='Button'
               size={"sm"}
               mr={4}
               leftIcon={<AddIcon />}

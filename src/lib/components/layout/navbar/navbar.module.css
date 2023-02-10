@@ -1,5 +1,5 @@
 .mobileNav {
     position: -webkit-sticky; /* Safari */
-    position: sticky;
+    position: static;
     top: 0;
   }

@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/components/Header.js", "src/lib/components/Post.js", "pages/index.js", "src/lib/services/getPosts.js", "src/lib/components/Pageillustration.js", "src/lib/components/Sphere.js", "src/lib/components/Sphere.js", "src/lib/components/ReviewApp.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/components/Header.js", "src/lib/components/Post.js", "pages/index.js", "src/lib/services/getPosts.js", "src/lib/components/splash/PageIllustration.js", "src/lib/components/Sphere.js", "src/lib/components/Sphere.js", "src/lib/components/ReviewApp.js"],
   "exclude": ["node_modules"]
 }

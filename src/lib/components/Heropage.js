@@ -1,10 +1,12 @@
 import { Box, Button, Flex, Heading, HStack, Img, Stack, Text } from '@chakra-ui/react'
 import { HiChevronRight } from 'react-icons/hi'
+import { useColorModeValue } from '@chakra-ui/react'
+
 
 
 export const Heropage = () => {
   return (
-    <Box bg="gray.800" as="section" minH="140px" position="relative">
+    <Box as="section"  position="relative">
       <Box py="32" position="relative" zIndex={1}>
         <Box
           maxW={{
@@ -19,20 +21,30 @@ export const Heropage = () => {
           color="white"
         >
           <Box maxW="xl">
-            <Heading as="h1" size="3xl" fontWeight="extrabold">
+            <Heading    bgGradient='linear(to-l, #7928CA, #FF0080)'
+                     bgClip='text'
+                    fontSize='6xl'
+                    fontWeight='extrabold'
+                     size="4xl" >
             Don't lose your job to AI!
             </Heading>
+            
             <Text
               fontSize={{
                 md: '2xl',
               }}
+              bg={useColorModeValue("black", "white")}
+              bgClip = 'text'
               mt="4"
               maxW="lg"
             >
+              
               AI is changing the world, and we're here to help you stay ahead of the curve. Join us to get your daily dose of AI. We'll provide you with a juicy 3-minute newsletter on everything AI. 
 
 (Promise you it's not boring)
+
             </Text>
+            
             <Stack
               direction={{
                 base: 'column',
@@ -44,9 +56,11 @@ export const Heropage = () => {
               <Button
                 as="a"
                 href="#"
-                colorScheme="blue"
+                bgGradient='linear(to-l, #7928CA, #FF0080)'
+                bgClip='Button'
                 px="8"
                 rounded="full"
+                
                 size="lg"
                 fontSize="md"
                 fontWeight="bold"
@@ -66,11 +80,14 @@ export const Heropage = () => {
                 fontWeight="bold"
                 px="5"
                 py="3"
+                bg={useColorModeValue("black", "white")}
+                bgClip = 'text'
                 _hover={{
                   bg: 'whiteAlpha.300',
                 }}
               >
-                <span>Free list of 500 ChatGPT prompts </span>
+                <span
+                >Free list of 500 ChatGPT prompts </span>
                 <HiChevronRight />
               </HStack>
             </Stack>
@@ -89,7 +106,7 @@ export const Heropage = () => {
       >
         <Box position="relative" w="full" h="full">
           <Img
-            src="https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+            src="/images/blurimg.png"
             alt="Main Image"
             w="full"
             h="full"
@@ -97,7 +114,7 @@ export const Heropage = () => {
             objectPosition="top bottom"
             position="absolute"
           />
-          <Box position="absolute" w="full" h="full" bg="blackAlpha.600" />
+          <Box position="absolute" w="full" h="full"  />
         </Box>
       </Flex>
     </Box>
