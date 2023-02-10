@@ -78,10 +78,8 @@ export const Heropage = () => {
                 color="white"
                 rounded="full"
                 fontWeight="bold"
-                px="5"
-                py="3"
-                bg={useColorModeValue("black", "white")}
-                bgClip = 'text'
+                px="1"
+                
                 _hover={{
                   bg: 'whiteAlpha.300',
                 }}
