@@ -10,7 +10,6 @@
 
 .bg {
     margin: 0 0;
-    background-image: url('../public/images/blur.gif');
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
