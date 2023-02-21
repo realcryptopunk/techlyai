@@ -6,12 +6,13 @@ import { useColorModeValue } from '@chakra-ui/react'
 
 export const Heropage = () => {
   return (
-    <Box as="section"  position="relative">
+    <Box as="section"  position="relative"
+    >
       <Box py="32" position="relative" zIndex={1}>
         <Box
           maxW={{
             base: 'xl',
-            md: '7xl',
+            md: '6xl',
           }}
           mx="auto"
           px={{
@@ -21,8 +22,8 @@ export const Heropage = () => {
           color="white"
         >
           <Box maxW="xl">
-            <Heading    bgGradient='linear(to-l, #7928CA, #FF0080)'
-                     bgClip='text'
+            <Heading   // bgGradient='linear(to-l, #7928CA, #FF0080)'
+                   //  bgClip='text'
                     fontSize='6xl'
                     fontWeight='extrabold'
                      size="4xl" >
@@ -51,6 +52,7 @@ export const Heropage = () => {
                 md: 'row',
               }}
               mt="10"
+              mb="-20"
               spacing="4"
             >
               <Button
@@ -103,15 +105,7 @@ export const Heropage = () => {
         align="center"
       >
         <Box position="relative" w="full" h="full">
-          <Img
-            src="/images/blurimg.png"
-            alt="Main Image"
-            w="full"
-            h="full"
-            objectFit="cover"
-            objectPosition="top bottom"
-            position="absolute"
-          />
+        
           <Box position="absolute" w="full" h="full"  />
         </Box>
       </Flex>

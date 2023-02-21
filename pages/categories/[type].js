@@ -59,8 +59,15 @@ export default function TypePage({ posts }) {
   const firstPost = filteredPosts[0];
 
   return(
-  <Container 
-   maxWidth="6xl" pb={1}>
+  <Container
+  maxWidth 
+  bgImage={'/images/blob.gif'} 
+  bgAttachment="fixed"
+  bgSize={'cover'}
+  bgPosition={'center'}
+  backgroundRepeat="no-repeat"
+  > 
+  
 
      <div
         className="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1"
@@ -89,13 +96,13 @@ export default function TypePage({ posts }) {
       
     
             <Post 
-              slug={`${data.slug}`}
-              coverImage={data.toolImg}
-              title={data.title}
-              excerpt={data.paragraph.split(' ').slice(0, 20).join(' ') + '...'}
-              type={data.type}
-              type2={data.type2}
-  
+            slug={`${data.slug}`}
+            coverImage={data.toolImg}
+            Link={data.Link}
+            title={data.title}
+            excerpt={data.paragraph.split(' ').slice(0, 20).join(' ') + '...'}
+            type={data.type}
+            type2={data.type2}
               // eslint-disable-next-line react/no-array-index-key
               key={`slug${i}`}
             />

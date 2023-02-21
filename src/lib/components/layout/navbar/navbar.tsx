@@ -30,6 +30,10 @@ const Links = [
     path: "/newsletter",
   },
   {
+    name: "AI Tools",
+    path: "/aitools",
+  },
+  {
     name: "Job Board",
     path: "/jobsinAi",
   },
@@ -37,6 +41,7 @@ const Links = [
 
 const NavLink = ({ children, path }: { children: ReactNode; path: string }) => (
   <Box
+  opacity={100}
     px={3}
     py={1}
     rounded={"md"}
@@ -54,7 +59,9 @@ export default function Navbar() {
 
   return (
     <div className={navStyles.mobileNav}>
-      <Box  px={4}>
+      <Box  px={4}
+          background="radial-gradient(ellipse 80% 50% at 50% -15%,rgba(110,114,180,0.25),transparent)" >
+
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -81,7 +88,7 @@ export default function Navbar() {
             <Link href={"https://tally.so/r/w4a5Ar"}>
             
             <Button
-              variant={"solid"}
+              variant='ghost'
               bgGradient='linear(to-l, #7928CA, #FF0080)'
                 bgClip='Button'
               size={"sm"}

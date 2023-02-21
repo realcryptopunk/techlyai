@@ -1,98 +1,93 @@
-import { Button,Badge,Stack,Text,Container,Image,Box } from "@chakra-ui/react";
-
+import { Button,Badge,Stack,Text,Container,Image,Box,Flex } from "@chakra-ui/react";
+import Slugpostright from "../src/lib/components/Slugpostright";
+import Slugpostleft from "../src/lib/components/Slugpostleft";
 import Link from "next/link";
 import { relative } from "path";
 import {getPosts, getPostBySlug, getAllPosts} from '../src/lib/services/getPosts';
 import Post from '../src/lib/components/Posts';
 
 
-
 export async function getStaticPaths() {
-    const posts = await getAllPosts();
-    const slugs = [];
-    posts.forEach(post => {
-      if (post && post.fields && post.fields.slug) {
-        slugs.push(post.fields.slug);
-      }
-    });
-    const paths = slugs.map(slug => ({ params: { slug } }));
-    return {
-      paths,
-      fallback: "blocking",
-    };
-  }
-  
-  export async function getStaticProps({ params }) {
-    let data = null;
-    try {
-      const post = await getPostBySlug(`{slug} = "${params.slug}"`);
-      data = post[0].fields;
-    } catch (err) {
-      console.error("error", err);
+  const posts = await getAllPosts();
+  const slugs = [];
+  posts.forEach((post) => {
+    if (post && post.fields && post.fields.slug) {
+      slugs.push(post.fields.slug);
     }
-  
-    return {
-      props: {
-        data,
-      },
-    };
+  });
+  const paths = slugs.map((slug) => ({ params: { slug } }));
+  return {
+    paths: paths,
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps({ params }) {
+  let data = null;
+  try {
+    const post = await getPostBySlug(`{slug} = "${params.slug}"`);
+    data = post[0].fields;
+  } catch (err) {
+    console.error("error", err);
   }
 
-  export default function PostPage({ data }) {
-    // This is where the blog html goes
-    return (
-      <Container  maxW="960px" mx="auto"
-     
-        rounded={'md'}
-        p={6}
-      >
-        <Stack>
-      <Box
-      mt={6}>
-        <Button>
-        <Link href="/">
-          <p>Go Back</p>
-        </Link>
-        </Button>
-       
-      </Box>
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
 
-       
-        <Box
-          h={'210px'}
-          mt={6}
-          mb={10}
-          pos ={'relative'}
-        >
-          <Image
-            src=
-              {data.toolImg}
-            alt={data.title}
-            borderRadius = {10}
-            layout={'fill'}
-          /> 
-         <Badge
-         mt={3}
-         mb={-3} 
-         borderRadius='full' px='2' colorScheme='teal'>
-                {data.type}
-              </Badge>
-          <Stack>
-         
-          <Text 
-          fontSize='5xl' 
-          fontWeight='bold'>
-            {data.title}
-          </Text>
-    
-      <Text>
-        {data.paragraph}
-      </Text>
-      </Stack>
-        </Box>
-        </Stack>
+export default function PostPage({ data }) {
+  // This is where the blog html goes
+  return (
 
-      </Container>
-    );
-  }
+    <Container maxWidth py={250}
+    bgImage={'/images/blob.gif'} 
+    bgAttachment='fixed'
+    bgSize={'cover'}
+    bgPosition={'center'}
+    backgroundRepeat="no-repeat" >
+
+    <Container py={'10'} px={'10'} sx={{bg: (10, 10, 10, 0.7),
+      borderRadius: 20,
+
+    }}
+      _focus={{ boxShadow: "outline" }}
+      rounded={"lg"}
+      boxShadow="2xl"
+      _hover={{ bg: (0, 0, 0, 2) }}
+     >
+<Box mt={6}>
+    <Button>
+      <Link href="/aitools">
+        <p>Go Back</p>
+      </Link>
+    </Button>
+  </Box>
+    <Flex direction="column" flex="1">
+    <Container py="50" px="10" flex="1">
+      <Stack direction={{ base: 'column', lg: 'row' }} spacing={{ base: '12', lg: '-20' }} flex="1">
+    <Slugpostleft 
+         title={data.title}
+         excerpt={data.paragraph}
+         type={data.type}
+         pricing={data.pricing}
+    />
+    <Slugpostright
+     coverImage={data.toolImg}
+     title={data.title}
+     />
+    </Stack>
+    </Container>
+
+  </Flex>
+  </Container>
+  </Container>
+  );
+}
+
+
+
+

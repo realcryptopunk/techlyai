@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import marked from 'marked';
 import React, { useState } from "react";
-import { Container, SimpleGrid, Button, Box } from "@chakra-ui/react";
+import { Container, Header, SimpleGrid, Button, Box } from "@chakra-ui/react";
 import getPosts from '../src/lib/services/getPosts';
 import Post from '../src/lib/components/Posts';
 import Navbar from '../src/lib/components/layout/navbar/navbar';
 import Sphere from '../src/lib/components/Sphere';
 import Heropage from '../src/lib/components/Heropage';
 import { ReactIcon } from '@chakra-ui/icons';
+import Categories from '../src/lib/components/Categories'
+import NewsletterCTA from '../src/lib/components/NewsletterCTA'
 
 export async function getStaticProps() {
   let posts;
@@ -42,52 +44,20 @@ export async function getStaticProps() {
 
 
 export default function Home({ posts }) {
-  const [visible, setVisible] = useState(12);
-
-  const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 12);
-  };
+ 
+  
 
   return(
-    <Container maxWidth >
+    <Container maxWidth py={300}
+    bgImage={'/images/blob.gif'} 
+    bgAttachment='scroll'
+    bgSize={'cover'}
+    bgPosition={'center'}
+    backgroundRepeat="no-repeat">
       <Heropage></Heropage>
-  <Container 
-   maxWidth="6xl" pb={1}>
-     
-      <SimpleGrid 
       
-      columns={[1, 2, 3]} spacing="10" pt={8} >
+      
+    </Container>
+  
    
-      {posts?.slice(0,visible).map((post, i) => {
-      const { data } = post;
-    // eslint-disable-next-line react/no-array-index-key
-        return(
-          <Post 
-          slug={`${data.slug}`}
-         coverImage={data.toolImg}
-         Link={data.Link}
-         title={data.title}
-         excerpt={data.paragraph.split(' ').slice(0, 20).join(' ') + '...'}
-         type={data.type}
-         type2={data.type2}
-
-         // eslint-disable-next-line react/no-array-index-key
-         key={`slug${i}`}
-         />
-       );
-      })} 
-  
-       
-  
-
-             
-      </SimpleGrid>
-      <Box mt="10" mb="10" align="center" justify="center">
-        <Button 
-      onClick={showMoreItems} >
-          Load More
-     </Button>
-        </Box>
-    </Container>
-    </Container>
   );}

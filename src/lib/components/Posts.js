@@ -21,16 +21,24 @@ const Post = ({ slug, coverImage, title, excerpt, type, type2 }) => {
   return (
     <Link href={`/${slug}`}>
       <Box
+      sx={{bg: (2),
+        borderRadius: 12,
+      }}
+
         bg={useColorModeValue("gray.200", "gray.700")}
         _focus={{ boxShadow: "outline" }}
         rounded={"lg"}
         boxShadow="2xl"
-        _hover={{ bg: useColorModeValue("blue.100", "blue.400") }}
+        
+        _hover={{ bg: (0, 0, 0, 2) }}
         height="full"
         display="flex"
         flexDirection="column"
-      >
+        >
+        
+      
         <Image
+        borderRadius= {100}
           src={coverImage}
           alt={title}
           width={390}
@@ -38,16 +46,16 @@ const Post = ({ slug, coverImage, title, excerpt, type, type2 }) => {
         />
         <Stack
           p="3"
-          spacing={{ base: "4", lg: "8" }}
+          spacing={{ base: "4", lg: "4" }}
           justifyContent="space-between"
-          flex="1"
+          flex="2"
           minHeight="200px"
         >
           <Stack>
             <Link href={`/categories/${type}`}>
             <Box display="flex" alignItems="baseline">
               {type && (
-                <Badge borderRadius="full" px="2" colorScheme="teal" mr={1}>
+                <Badge borderRadius="full" px="2"   bgGradient='linear(to-l, #7928CA, #FF0080)' mr={1}>
                   {type}
                 </Badge>
               )
@@ -64,22 +72,24 @@ const Post = ({ slug, coverImage, title, excerpt, type, type2 }) => {
               >
                 {title}
               </Heading >
-        
-              
+    
             </Box>
-              <Text mt={2}>{limitedExcerpt}</Text>
+              <Text mt={1}>{limitedExcerpt}</Text>
             </Box>
           </Stack>
           <Stack
             mt={6}
-            direction={"row"}
+  
             spacing={4}
             align={"center"}
             width="100%"
             pb="3"
           >
-            <Box>
-              <Button fontWeight="medium">Learn More</Button>
+            <Box >
+              <Button 
+          
+              bgColor= "gray.700"
+              fontWeight="medium">Learn More</Button>
             </Box>
           </Stack>
         </Stack>

@@ -1,10 +1,10 @@
 import '../styles/globals.css'
-import Header from '../src/lib/components/Header'
+
 import type { AppProps } from 'next/app'
 import Layout from '../src/lib/components/layout/layout'
 import * as React from 'react'
 import theme from '../styles/customTheme/theme'
-import Footer from '../src/lib/components/Footer'
+import Footer from '../src/lib/components/layout/Footer'
 import Heropage from '../src/lib/components/Heropage'
 import Sphere from '../src/lib/components/Sphere'
 
@@ -17,10 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
 
     <ChakraProvider theme={theme}>
-     
-      <Layout>
+   
+      <Layout >
+
         <Component {...pageProps} />
       </Layout>
+    
     </ChakraProvider>
 
   )
