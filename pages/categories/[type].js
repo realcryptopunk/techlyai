@@ -60,18 +60,17 @@ export default function TypePage({ posts }) {
 
   return(
   <Container
-  maxWidth 
-  bgImage={'/images/blob.gif'} 
+  maxWidth
+  bgImage={"/images/blob.gif"}
   bgAttachment="fixed"
-  bgSize={'cover'}
-  bgPosition={'center'}
+  bgSize={"cover"}
+  bgPosition={"center"}
   backgroundRepeat="no-repeat"
   > 
   
 
-     <div
-        className="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1"
-        aria-hidden="true"
+     <Container
+       maxWidth="6xl" pb={1}
       >
         <Text fontSize={'5xl'}
         fontWeight = {'bold'}
@@ -80,20 +79,21 @@ export default function TypePage({ posts }) {
         <Text fontSize={'1xl'}
         textAlign ={'center'}
         >These are the top AI tools for {firstPost ? firstPost.data.type : ''} </Text>
-      </div>
+      </Container>
     
-    
+      <Container 
+   maxWidth="6xl" pb={1}>
       <SimpleGrid 
-      
-      columns={[1, 2, 3]} spacing="10" pt={8} >
+   columns={[1, 2, 3]} spacing="10" pt={8}
+>
    
       {filteredPosts
-        .slice(0, visible)
+       
         .map((post, i) => {
           const { data } = post;
           // eslint-disable-next-line react/no-array-index-key
           return( 
-      
+            
     
             <Post 
             slug={`${data.slug}`}
@@ -113,12 +113,7 @@ export default function TypePage({ posts }) {
   
              
       </SimpleGrid>
-      <Box mt="10" mb="10" align="center" justify="center">
-        <Button 
-      onClick={showMoreItems} >
-          Load More
-     </Button>
-        </Box>
+      </Container>
     </Container>
   );
    }

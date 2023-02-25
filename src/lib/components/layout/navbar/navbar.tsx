@@ -98,7 +98,6 @@ export default function Navbar() {
               Submit A Tool
             </Button>
             </Link>
-            <ColorModeSwitcher />
           </Flex>
         </Flex>
 

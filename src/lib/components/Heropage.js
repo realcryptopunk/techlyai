@@ -1,97 +1,88 @@
-import { Box, Button, Flex, Heading, HStack, Img, Stack, Text } from '@chakra-ui/react'
-import { HiChevronRight } from 'react-icons/hi'
-import { useColorModeValue } from '@chakra-ui/react'
-
-
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  Img,
+  Stack,
+  Text,
+  Input,
+} from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
+import Blogpage from "./Blogpage";
+import Footer from "./Footer";
 
 export const Heropage = () => {
   return (
-    <Box as="section"  position="relative"
-    >
+    <Box as="section" position="relative">
       <Box py="32" position="relative" zIndex={1}>
         <Box
           maxW={{
-            base: 'xl',
-            md: '6xl',
+            base: "xl",
+            md: "6xl",
           }}
           mx="auto"
+          
           px={{
-            base: '6',
-            md: '8',
+            base: "6",
+            md: "8",
           }}
-          color="white"
         >
           <Box maxW="xl">
-            <Heading   // bgGradient='linear(to-l, #7928CA, #FF0080)'
-                   //  bgClip='text'
-                    fontSize='6xl'
-                    fontWeight='extrabold'
-                     size="4xl" >
-            Don't lose your job to AI!
+            <Heading 
+              // bgGradient='linear(to-l, #7928CA, #FF0080)'
+              //  bgClip='text'
+              fontSize="6xl"
+              fontWeight="extrabold"
+              size="4xl"
+            >
+              Don't lose your job to AI!
             </Heading>
-            
+
             <Text
               fontSize={{
-                md: '2xl',
+                md: "2xl",
               }}
               bg={useColorModeValue("black", "white")}
-              bgClip = 'text'
+              bgClip="text"
               mt="4"
               maxW="lg"
             >
-              
-              AI is changing the world, and we're here to help you stay ahead of the curve. Join us to get your daily dose of AI. We'll provide you with a juicy 3-minute newsletter on everything AI. 
-
-(Promise you it's not boring)
-
+              AI is changing the world, and we're here to help you stay ahead of
+              the curve. Join us to get your daily dose of AI. We'll provide you
+              with a juicy 3-minute newsletter on everything AI. (Promise you
+              it's not boring)
             </Text>
-            
+
             <Stack
-              direction={{
-                base: 'column',
-                md: 'row',
-              }}
-              mt="10"
-              mb="-20"
               spacing="4"
+              direction={{
+                base: "column",
+                md: "row",
+              }}
+              width="full"
+              py={5}
             >
-              <Button
-                as="a"
-                href="#"
-                bgGradient='linear(to-l, #7928CA, #FF0080)'
-                bgClip='Button'
-                px="8"
-                rounded="full"
-                
+              <Input
                 size="lg"
-                fontSize="md"
-                fontWeight="bold"
+                type="email"
+                placeholder="Enter your email"
+                maxW={{
+                  md: "sm",
+                }}
+              />
+              <Button
+                variant="ghost"
+                bgGradient="linear(to-l, #7928CA, #FF0080)"
+                bgClip="Button"
+                size="lg"
               >
-                Get Smarter about AI
+                Subscribe
               </Button>
-              <HStack
-                as="a"
-                transition="background 0.2s"
-                justify={{
-                  base: 'center',
-                  md: 'flex-start',
-                }}
-                href="#"
-                color="white"
-                rounded="full"
-                fontWeight="bold"
-                px="1"
-                
-                _hover={{
-                  bg: 'whiteAlpha.300',
-                }}
-              >
-                <span
-                >Free list of 500 ChatGPT prompts </span>
-                <HiChevronRight />
-              </HStack>
             </Stack>
           </Box>
+          <Blogpage></Blogpage>
         </Box>
       </Box>
       <Flex
@@ -104,12 +95,10 @@ export const Heropage = () => {
         overflow="hidden"
         align="center"
       >
-        <Box position="relative" w="full" h="full">
-        
-          <Box position="absolute" w="full" h="full"  />
-        </Box>
+        <Box position="relative" w="full" h="full"></Box>
       </Flex>
+      <Footer></Footer>
     </Box>
-  )
-}
+  );
+};
 export default Heropage;

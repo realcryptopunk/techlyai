@@ -5,7 +5,6 @@ import { Container, Heading, SimpleGrid, Button, Box } from "@chakra-ui/react";
 import getPosts from '../../src/lib/services/getPosts';
 import Post from '../../src/lib/components/Posts';
 import Navbar from '../../src/lib/components/layout/navbar/navbar';
-import Sphere from '../../src/lib/components/Sphere';
 import Heropage from '../../src/lib/components/Heropage';
 import { ReactIcon } from '@chakra-ui/icons';
 import Categories from '../../src/lib/components/Categories';
