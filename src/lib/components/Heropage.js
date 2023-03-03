@@ -8,6 +8,7 @@ import {
   Stack,
   Text,
   Input,
+  Center,
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/react";
 import Blogpage from "./Blogpage";
@@ -15,6 +16,7 @@ import Footer from "./Footer";
 
 export const Heropage = () => {
   return (
+    
     <Box as="section" position="relative">
       <Box py="32" position="relative" zIndex={1}>
         <Box
@@ -29,7 +31,8 @@ export const Heropage = () => {
             md: "8",
           }}
         >
-          <Box maxW="xl">
+         
+          <Box >
             <Heading 
               // bgGradient='linear(to-l, #7928CA, #FF0080)'
               //  bgClip='text'
@@ -37,9 +40,9 @@ export const Heropage = () => {
               fontWeight="extrabold"
               size="4xl"
             >
-              Don't lose your job to AI!
+              Don't lose your job to AI! 💼
             </Heading>
-
+          
             <Text
               fontSize={{
                 md: "2xl",
@@ -52,9 +55,10 @@ export const Heropage = () => {
               AI is changing the world, and we're here to help you stay ahead of
               the curve. Join us to get your daily dose of AI. We'll provide you
               with a juicy 3-minute newsletter on everything AI. (Promise you
-              it's not boring)
+              it's not boring!)
             </Text>
-
+               
+                  
             <Stack
               spacing="4"
               direction={{
@@ -80,8 +84,12 @@ export const Heropage = () => {
               >
                 Subscribe
               </Button>
+            
             </Stack>
+            
+         
           </Box>
+        
           <Blogpage></Blogpage>
         </Box>
       </Box>

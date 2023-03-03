@@ -78,7 +78,7 @@ const Posts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
           </Stack>
           <Stack mt={6} spacing={4} align={"center"} width="100%" pb="3">
             <Box>
-              <Button  bgColor="gray.700" fontWeight="medium">
+              <Button  sx={{ background: "rgba(0, 0, 0, 0.3)"}}  fontWeight="medium">
                 Learn More
               </Button>
             </Box>

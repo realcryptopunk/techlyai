@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import marked from 'marked';
 import React, { useState } from "react";
-import { Input, Container, Heading, SimpleGrid, Button, Box, HStack, Center } from "@chakra-ui/react";
+import { Input, Container, Heading, SimpleGrid, Button, Box, HStack, Center, Text } from "@chakra-ui/react";
 import getPosts from '../../src/lib/services/getPosts';
 import Post from '../../src/lib/components/Posts';
 import Navbar from '../../src/lib/components/layout/navbar/navbar';
@@ -56,6 +56,12 @@ export default function AITools({ posts }) {
     setSearchResults([]);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <Container
       maxWidth
@@ -81,6 +87,7 @@ export default function AITools({ posts }) {
               type="text"
               onChange={(e) => setSearchQuery(e.target.value)}
               value={searchQuery}
+              onKeyPress={handleKeyPress}
               placeholder="Search for a tool"
             />
             <Button onClick={handleSearch}>Search</Button>
