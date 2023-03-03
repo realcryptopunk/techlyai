@@ -78,9 +78,11 @@ export default function Navbar() {
                   {name}
                 </NavLink>
               ))}
+       
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
+        
             <Link href={"https://tally.so/r/w4a5Ar"}>
             
             <Button
@@ -88,12 +90,14 @@ export default function Navbar() {
               bgGradient='linear(to-l, #7928CA, #FF0080)'
                 bgClip='Button'
               size={"sm"}
-              mr={4}
+          
               leftIcon={<AddIcon />}
             >
               Submit A Tool
             </Button>
+           
             </Link>
+            <ColorModeSwitcher></ColorModeSwitcher>
           </Flex>
         </Flex>
 
