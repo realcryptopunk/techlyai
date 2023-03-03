@@ -16,25 +16,34 @@ import Image from "next/legacy/image";
 import Link from "next/link";
 import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
-import { FiExternalLink } from "react-icons/fi";
+import { FaParagraph, TbExternalLink } from "react-icons/fa";
 
-const Slugpostright = ({ coverImage, title, excerpt, type, pricing }) => {
+const Slugpostright = ({ coverImage, title, excerpt, type, pricingModel }) => {
   return (
     <Container py="5" flex="1">
       <Box>
         <Stack
-          p="3"
-          spacing={{ base: "4", lg: "4" }}
+          spacing={{ base: "2", lg: "2" }}
           justifyContent="space-between"
         >
           <Stack>
             <Box>
-              <Box display="flex" alignItems="baseline"></Box>
+              <Box display="flex" alignItems="baseline">
+                <Heading
+                  color={useColorModeValue("gray.700", "white")}
+                  fontSize={"5xl"}
+                  fontFamily={"body"}
+                >
+                  {title}
+                </Heading>
+              </Box>
 
               <Text mt={1} mb={1}>
                 {excerpt}
               </Text>
             </Box>
+            <HStack>
+              <Text>Catgory:</Text>
             <Link href={`/categories/${type}`}>
               <Box display="flex" alignItems="baseline">
                 {type && (
@@ -49,28 +58,31 @@ const Slugpostright = ({ coverImage, title, excerpt, type, pricing }) => {
                 )}
               </Box>
             </Link>
-            <Image src={coverImage} alt={title} width={300} height={300} />
+            </HStack>
+            <HStack>
+              <Text>Pricing:</Text>
+              <Box display="flex" alignItems="baseline">
+                  <Badge
+                    borderRadius="full"
+                    px="2"
+                    bgGradient="linear(to-l, #7928CA, #FF0080)"
+                    mr={1}
+                  >
+                    {pricingModel}
+                  </Badge>
+                
+              </Box>
+            </HStack>
           </Stack>
           <Stack
-            mt={6}
+            mt={5}
             direction={"row"}
             spacing={4}
             align={"center"}
             width="100%"
             pb="3"
           >
-            <Box>
-              <Button
-                bgColor="gray.700"
-                borderRadius={"full"}
-                width={"xl"}
-                justifyContent="center"
-                fontWeight="bold"
-              >
-                Visit {title}&nbsp;
-                <FiExternalLink size={"20"}></FiExternalLink>{" "}
-              </Button>
-            </Box>
+          
           </Stack>
         </Stack>
       </Box>

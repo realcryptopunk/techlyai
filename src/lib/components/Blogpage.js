@@ -14,6 +14,37 @@ import {
 } from "@chakra-ui/react";
 import { posts } from "./data";
 
+export async function getStaticProps() {
+  // Get files from the posts dir
+  const files = fs.readdirSync(path.join("posts"));
+
+  // Get slug and frontmatter from posts
+  const posts = files.map((filename) => {
+    // Create slug
+    const slug = filename.replace(".md", "");
+
+    // Get frontmatter
+    const markdownWithMeta = fs.readFileSync(
+      path.join("posts", filename),
+      "utf-8"
+    );
+
+    const { data } = matter(markdownWithMeta);
+
+    return {
+      slug,
+      data,
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+
 export const Blogpage = () => (
   <Container
     py={{

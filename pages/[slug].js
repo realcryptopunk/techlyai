@@ -9,15 +9,15 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import Slugpostright from "../src/lib/components/Slugpostright";
-import Slugpostleft from "../src/lib/components/Slugpostleft";
 import Link from "next/link";
-import { relative } from "path";
+import Footer from "../src/lib/components/Footer";
 import {
   getPosts,
   getPostBySlug,
   getAllPosts,
 } from "../src/lib/services/getPosts";
-import Post from "../src/lib/components/Posts";
+import Slugpostleft from "../src/lib/components/Slugpostleft";
+
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -51,11 +51,11 @@ export async function getStaticProps({ params }) {
 }
 
 export default function PostPage({ data }) {
-  // This is where the blog html goes
+  
   return (
     <Container
-      maxWidth
-      py={250}
+    maxWidth="100%"
+      py={[8, 16, 24, 32]}
       bgImage={"/images/blob.gif"}
       bgAttachment="fixed"
       bgSize={"cover"}
@@ -63,38 +63,40 @@ export default function PostPage({ data }) {
       backgroundRepeat="no-repeat"
     >
       <Container
-        py={"10"}
-        px={"10"}
+        py={"5"}
         sx={{ background: "rgba(243, 179, 244, 0.2)", borderRadius: 20 }}
-        _focus={{ boxShadow: "outline" }}
+     
         rounded={"lg"}
         boxShadow="2xl"
       >
-        <Box mt={6}>
-          <Button>
-            <Link href="/aitools">
-              <p>Go Back</p>
-            </Link>
-          </Button>
-        </Box>
+        
         <Flex direction="column" flex="1">
-          <Container py="50" px="10" flex="1">
-            <Stack
+          <Container  flex="1">
+            <Stack alignItems="center" 
               direction={{ base: "column", lg: "row" }}
-              spacing={{ base: "12", lg: "-20" }}
+              spacing={{ base: '-10', lg: '-10' }}
               flex="1"
             >
-              <Slugpostleft
+            
+              <Slugpostleft 
+            
+              coverImage={data.toolImg} 
+              title={data.title} />
+
+              <Slugpostright
                 title={data.title}
                 excerpt={data.paragraph}
                 type={data.type}
-                pricing={data.pricing}
+                pricingModel={data.pricingModel}
               />
-              <Slugpostright coverImage={data.toolImg} title={data.title} />
             </Stack>
           </Container>
         </Flex>
-      </Container>
+      </Container >
+
+  
+    
+      <Footer></Footer>
     </Container>
   );
 }

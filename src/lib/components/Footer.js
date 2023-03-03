@@ -12,7 +12,7 @@ import {
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export const Footer = () => (
-  <Box sx={{ background: "rgba(0, 0, 0, 0)", borderRadius: 12 }}>
+  <Box pt={"40"}sx={{ background: "rgba(0, 0, 0, 0)", borderRadius: 12 }}>
     <Container as="footer" role="contentinfo">
       <Stack
         spacing="5"
@@ -27,7 +27,7 @@ export const Footer = () => (
         </Stack>
         <Stack
           direction={{ base: "column-reverse", md: "column", lg: "row" }}
-          spacing={{ base: "12", md: "8" }}
+          spacing={{ base: "10", md: "8" }}
         >
           <Stack direction="row" spacing="8">
             <Stack spacing="4" minW="36" flex="1">
@@ -36,8 +36,7 @@ export const Footer = () => (
               </Text>
               <Stack spacing="3" shouldWrapChildren>
                 <Button variant="link-on-accent">How it works</Button>
-                <Button variant="link-on-accent">Pricing</Button>
-                <Button variant="link-on-accent">Use Cases</Button>
+            
               </Stack>
             </Stack>
             <Stack spacing="4" minW="36" flex="1">
@@ -46,8 +45,8 @@ export const Footer = () => (
               </Text>
               <Stack spacing="3" shouldWrapChildren>
                 <Button variant="link-on-accent">Privacy</Button>
-                <Button variant="link-on-accent">Terms</Button>
-                <Button variant="link-on-accent">License</Button>
+    
+
               </Stack>
             </Stack>
           </Stack>
@@ -58,7 +57,6 @@ export const Footer = () => (
       <Divider borderColor="white" />
       <Stack
         pt="8"
-        pb="12"
         justify="space-between"
         direction={{ base: "column-reverse", md: "row" }}
         align="center"

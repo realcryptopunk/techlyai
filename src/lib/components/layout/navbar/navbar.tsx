@@ -33,10 +33,6 @@ const Links = [
     name: "AI Tools",
     path: "/aitools",
   },
-  {
-    name: "Job Board",
-    path: "/jobsinAi",
-  },
 ];
 
 const NavLink = ({ children, path }: { children: ReactNode; path: string }) => (

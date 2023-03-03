@@ -16,13 +16,17 @@ import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
 import { TbExternalLink } from "react-icons/fa";
 
-const Post = ({ slug, coverImage, title, excerpt, type, type2 }) => {
+const Posts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
   const lines = excerpt.split("\n");
   const limitedExcerpt =
     lines.slice(0, 3).join("\n") + (lines.length > 3 ? "\n..." : "");
 
   return (
-    <Link href={`/${slug}`}>
+    <Link href={`${slug}`}
+           _hover={{
+              textDecor: "none",
+            }}
+            role="group">
       <Box
         sx={{ background: "rgba(243, 179, 244, 0.2)", borderRadius: 12 }}
         boxShadow="md"
@@ -40,40 +44,41 @@ const Post = ({ slug, coverImage, title, excerpt, type, type2 }) => {
           spacing={{ base: "4", lg: "4" }}
           justifyContent="space-between"
           flex="2"
-          minHeight="200px"
         >
           <Stack>
             <Link href={`/categories/${type}`}>
               <Box display="flex" alignItems="baseline">
                 {type && (
-                  <Badge
+                  <Button
+                  size={"sm"}
                     borderRadius="full"
                     px="2"
                     bgGradient="linear(to-l, #7928CA, #FF0080)"
                     mr={1}
                   >
                     {type}
-                  </Badge>
+                  </Button>
                 )}
               </Box>
             </Link>
 
             <Box>
               <Box display="flex" alignItems="baseline">
-                <Heading
+                <Text
                   color={useColorModeValue("gray.700", "white")}
                   fontSize={"xl"}
-                  fontFamily={"body"}
+                  fontWeight={"bold"}
+                  fontFamily={"heading"}
                 >
                   {title}
-                </Heading>
+                </Text>
               </Box>
               <Text mt={1}>{limitedExcerpt}</Text>
             </Box>
           </Stack>
           <Stack mt={6} spacing={4} align={"center"} width="100%" pb="3">
             <Box>
-              <Button bgColor="gray.700" fontWeight="medium">
+              <Button  bgColor="gray.700" fontWeight="medium">
                 Learn More
               </Button>
             </Box>
@@ -84,7 +89,7 @@ const Post = ({ slug, coverImage, title, excerpt, type, type2 }) => {
   );
 };
 
-export default Post;
+export default Posts;
 
 // {type2 && type2 !== '' && (
 // <Badge borderRadius="full" px="2" colorScheme="teal">

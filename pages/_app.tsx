@@ -7,6 +7,7 @@ import theme from '../styles/customTheme/theme'
 import Footer from '../src/lib/components/Footer'
 import Heropage from '../src/lib/components/Heropage'
 
+
 import { ChakraProvider } from '@chakra-ui/react'
 
 
@@ -18,8 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
    
       <Layout >
-
+     
         <Component {...pageProps} />
+
+
       </Layout>
     
     </ChakraProvider>

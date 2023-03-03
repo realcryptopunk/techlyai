@@ -1,79 +1,65 @@
-import { Text,
-    Box,
-    Stack,
-    VStack,
-    HStack,
-    Card,
-    Button,
-    Flex,
-    Container,
-    Badge,
-    Heading,
-    Avatar,} from "@chakra-ui/react";
+import {
+  Text,
+  Box,
+  Stack,
+  VStack,
+  HStack,
+  Card,
+  Button,
+  Flex,
+  Container,
+  Badge,
+  Heading,
+  Avatar,
+} from "@chakra-ui/react";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
-import {FaParagraph, TbExternalLink} from "react-icons/fa"
+import { FiExternalLink } from "react-icons/fi";
 
-const Slugpostleft = ({ coverImage,title,excerpt,type,pricing }) => {
- 
+const Slugpostleft = ({ coverImage, title, excerpt, type, pricing }) => {
   return (
-    <Container  py="5" flex="1">
-          <Box
-          
-            >
-            
-          
-            
-            <Stack
-              p="3"
-              spacing={{ base: "4", lg: "4" }}
-              justifyContent="space-between"
-              
-            >
-              <Stack>
-                
-                
-                <Box>
-                <Box display="flex" alignItems="baseline">
-                  <Heading
-                    color={useColorModeValue("gray.700", "white")}
-                    fontSize={"5xl"}
-                    fontFamily={"body"}
-                  >
-                    {title}
-                  </Heading >
-                </Box>
-                
-                  <Text mt={1} mb={1}>{excerpt}</Text>
-                </Box>
-                <Link href={`/categories/${type}`}>
-                <Box display="flex" alignItems="baseline">
-                  {type && (
-                    <Badge borderRadius="full" px="2"   bgGradient='linear(to-l, #7928CA, #FF0080)' mr={1}>
-                      {type}
-                    </Badge>
-                  )
-                 }
-                  </Box>
-                  </Link>
-                 
-              </Stack>
-              <Stack
-                mt={6}
-                direction={"row"}
-                spacing={4}
-                align={"center"}
-                width="100%"
-                pb="3"
+    <Container py="5" flex="1">
+      <Box>
+        <Stack
+          spacing={{ base: "2", lg: "2" }}
+          justifyContent="space-between"
+        >
+            <Box mb={5}>
+          <Button>
+            <Link href="/aitools">
+              <p>Go Back</p>
+            </Link>
+          </Button>
+        </Box>
+
+            <Image
+            src={coverImage} 
+            alt={title} 
+            width={320} 
+            height={280} />
+          <Stack
+            direction={"row"}
+            spacing={4}
+            align={"center"}
+          >
+            <Box mt={"3"} >
+              <Button
+                borderRadius={"md"}
+                width={"l"}
+                justifyContent="center"
+                fontWeight="bold"
               >
-              
-              </Stack>
-            </Stack>
-          </Box>
-          </Container>
-      );
-    };
+                Visit {title}&nbsp;
+                <FiExternalLink size={"20"}></FiExternalLink>{" "}
+              </Button>
+            </Box>
+          </Stack>
+        </Stack>
+      </Box>
+    </Container>
+  );
+};
 
 export default Slugpostleft;

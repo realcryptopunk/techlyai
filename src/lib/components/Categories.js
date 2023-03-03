@@ -19,16 +19,16 @@ import { TbExternalLink } from "react-icons/fa";
 
 const Categories = ({ type, Categories }) => {
   return (
-    <Stack p="1">
-      <Box display="flex" alignItems="baseline"></Box>
+    <HStack p="1">
+      <Box display={"flex"} alignItems={"baseline"}></Box>
       <Link href={`/categories/${type}`}>
         <Box display="flex" alignItems="baseline">
-          <Button sx={{ background: "rgba(78, 78, 78, 0.2)"}} mr={4}>
+          <Button size="md" sx={{ background: "rgba(78, 78, 78, 0.2)"}} mr={4}>
             {Categories}
           </Button>
         </Box>
       </Link>
-    </Stack>
+    </HStack>
   );
 };
 
