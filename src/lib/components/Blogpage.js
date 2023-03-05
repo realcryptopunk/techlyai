@@ -108,7 +108,8 @@ export const Blogpage = () => (
       >
         {posts.map((post) => (
           <Link
-            key={post.id}
+            href = 
+            {`/newsletter/${post.id}`}
             _hover={{
               textDecor: "none",
             }}

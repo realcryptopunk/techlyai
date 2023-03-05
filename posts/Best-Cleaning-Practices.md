@@ -4,7 +4,7 @@ published_at: "Jan 14 2023"
 author: "Navid Rohan"
 author_image: "/images/author-images/nav.jpg"
 excerpt: "Keeping up with your cleaning can be a hassle, we provide the best practices for dealing with your turnovers."
-cover_image: '/images/posts/memphis.jpg'
+cover_image: 'https://aitools4u.s3.amazonaws.com/blogimg2.jpg'
 ---
 
 As an Airbnb host, one of the most important aspects of your business is maintaining a clean and welcoming environment for your guests. Not only will this ensure that your guests have a pleasant stay, but it will also increase the likelihood of positive reviews and repeat business. Here are 5 tips for keeping your Airbnb in top shape:

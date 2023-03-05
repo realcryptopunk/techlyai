@@ -27,7 +27,7 @@ export async function getStaticProps() {
   }
 
   // sort the posts alphabetically by the value of data.slug
-  posts.sort((a, b) => a.data.slug.localeCompare(b.data.slug));
+  
 
   return {
     props: {
@@ -79,7 +79,7 @@ export default function AITools({ posts }) {
           fontWeight="extrabold"
           size="4xl"
         >
-          Find Amazing AI Tools That Make Your Life Easy!
+          Find an awesome AI tool that makes your life easier! 
         </Center>
         <Box pb={5}>
           <HStack>

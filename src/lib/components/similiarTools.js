@@ -3,8 +3,8 @@ import { Container, SimpleGrid, Button, Box, Text } from "@chakra-ui/react";
 import getPosts from "../../src/lib/services/getPosts";
 import { useRouter } from 'next/router';
 import Post from "../../src/lib/components/Posts";
-import Footer from "../../src/lib/components/Footer";
-export async function getStaticPaths() {
+
+export async function getStaticComponentPaths() {
   const posts = await getPosts();
   const types = [...new Set(posts.map(post => post.fields.type))];
   const paths = types.map(type => {
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticComponentProps({ params }) {
   let posts;
   try {
     const allPostsFromAirtable = await getPosts();
@@ -31,7 +31,13 @@ export async function getStaticProps({ params }) {
   }
 
   // sort the posts alphabetically by the value of data.slug
-  
+  posts.sort((a, b) => {
+    const slugA = a.data.slug.toLowerCase();
+    const slugB = b.data.slug.toLowerCase();
+    if (slugA < slugB) return -1;
+    if (slugA > slugB) return 1;
+    return 0;
+  });
 
   return {
     props: {
@@ -43,7 +49,9 @@ export async function getStaticProps({ params }) {
 export default function TypePage({ posts }) {
   const [visible, setVisible] = useState(12);
 
- 
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 12);
+  };
 
   const { query } = useRouter();
 
@@ -53,6 +61,7 @@ export default function TypePage({ posts }) {
   return(
   <Container
   maxWidth
+  py={250}
   bgImage={"/images/blob.gif"}
   bgAttachment="fixed"
   bgSize={"cover"}
@@ -106,8 +115,6 @@ export default function TypePage({ posts }) {
              
       </SimpleGrid>
       </Container>
-      <Footer></Footer>
     </Container>
   );
    }
-
