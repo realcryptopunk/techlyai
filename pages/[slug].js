@@ -81,9 +81,11 @@ export default function PostPage({ data }) {
               <Slugpostleft 
             
               coverImage={data.toolImg} 
-              title={data.title} />
+              title={data.title}
+              Link={data.Link} />
 
               <Slugpostright
+                
                 title={data.title}
                 excerpt={data.paragraph}
                 type={data.type}

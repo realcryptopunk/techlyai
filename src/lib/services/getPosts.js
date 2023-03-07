@@ -1,9 +1,11 @@
 const Airtable = require('airtable');
 
-const airtable = new Airtable({ apiKey: "pattLbWr55skn4g0Q.2e451ee3a8b8ff7c9b76971bcb81037cd2ef8d3b30d57f54e1f47e422c7c3ce5" });
-const base = airtable.base("appRaWp8xH26TGBKc");
 
-const table = base('tbl35aAE6ORC02PfO');
+const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY });
+const base = airtable.base(process.env.AIRTABLE_BASE_ID || "");
+const table = base(process.env.AIRTABLE_TABLE_ID);
+
+
 
 // maps over the records, calling minifyRecord, giving us required data
 const getMinifiedRecords = (records) => {

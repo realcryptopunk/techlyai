@@ -18,7 +18,10 @@ import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
 import { FiExternalLink } from "react-icons/fi";
 
-const Slugpostleft = ({ coverImage, title, excerpt, type, pricing }) => {
+const Slugpostleft = ({ coverImage, title, excerpt, type, pricing, Link }) => {
+  const clickHandle = () => {
+    document.location.href = `${Link}`;
+  }
   return (
     <Container py="5" flex="1">
       <Box>
@@ -45,7 +48,8 @@ const Slugpostleft = ({ coverImage, title, excerpt, type, pricing }) => {
             align={"center"}
           >
             <Box mt={"3"} >
-              <Button
+              <Link href={`${Link}`} >
+              <a
                 borderRadius={"md"}
                 width={"l"}
                 justifyContent="center"
@@ -53,7 +57,9 @@ const Slugpostleft = ({ coverImage, title, excerpt, type, pricing }) => {
               >
                 Visit {title}&nbsp;
                 <FiExternalLink size={"20"}></FiExternalLink>{" "}
-              </Button>
+              </a>
+              
+              </Link>
             </Box>
           </Stack>
         </Stack>
