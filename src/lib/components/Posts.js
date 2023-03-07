@@ -65,7 +65,7 @@ const Posts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
             <Box>
               <Box display="flex" alignItems="baseline">
                 <Text
-                  color={useColorModeValue("gray.700", "white")}
+                  color={useColorModeValue("white", "white")}
                   fontSize={"xl"}
                   fontWeight={"bold"}
                   fontFamily={"heading"}

@@ -11,7 +11,7 @@ import { use } from "react";
   
   export const ColorModeSwitcher = (props: ColorModeSwitcherProps) => {
     const { toggleColorMode } = useColorMode();
-    const text = useColorModeValue("dark", "light");
+    const text = useColorModeValue("light", "light");
     const SwitchIcon = useColorModeValue(FaMoon, FaSun);
     
   

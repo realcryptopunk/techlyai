@@ -30,7 +30,7 @@ const Slugpostright = ({ coverImage, title, excerpt, type, pricingModel }) => {
             <Box>
               <Box display="flex" alignItems="baseline">
                 <Heading
-                  color={useColorModeValue("gray.700", "white")}
+                  color={useColorModeValue("white", "white")}
                   fontSize={"5xl"}
                   fontFamily={"body"}
                 >

@@ -47,7 +47,7 @@ export const Heropage = () => {
               fontSize={{
                 md: "2xl",
               }}
-              bg={useColorModeValue("black", "white")}
+              bg={useColorModeValue("white", "white")}
               bgClip="text"
               mt="4"
               maxW="lg"
