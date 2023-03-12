@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, SimpleGrid, Button, Box, Text } from "@chakra-ui/react";
 import getPosts from "../../src/lib/services/getPosts";
 import { useRouter } from 'next/router';
-import Post from "../../src/lib/components/Posts";
+import Catposts from "../../src/lib/components/Catposts";
 import Footer from "../../src/lib/components/Footer";
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -87,7 +87,7 @@ export default function TypePage({ posts }) {
           return( 
             
     
-            <Post 
+            <Catposts 
             slug={`${data.slug}`}
             coverImage={data.toolImg}
             Link={data.Link}
