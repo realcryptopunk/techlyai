@@ -68,9 +68,6 @@ export default function TypePage({ posts }) {
         fontWeight = {'bold'}
         textAlign ={'center'}
         >Top Ai Tools for {firstPost ? firstPost.data.type : ''} </Text>
-        <Text fontSize={'1xl'}
-        textAlign ={'center'}
-        >These are the top AI tools for {firstPost ? firstPost.data.type : ''} </Text>
       </Container>
     
       <Container 

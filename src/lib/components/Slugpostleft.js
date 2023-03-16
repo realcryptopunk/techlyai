@@ -18,10 +18,9 @@ import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
 import { FiExternalLink } from "react-icons/fi";
 
-const Slugpostleft = ({ coverImage, title, excerpt, type, pricing, Link }) => {
-  const clickHandle = () => {
-    document.location.href = `${Link}`;
-  }
+const Slugpostleft = ({ coverImage, title, excerpt, type, pricing, urlLink }) => {
+  console.log('urlLink:', urlLink); // Add this line to log the value of urlLink
+
   return (
     <Container py="5" flex="1">
       <Box>
@@ -36,32 +35,24 @@ const Slugpostleft = ({ coverImage, title, excerpt, type, pricing, Link }) => {
             </Link>
           </Button>
         </Box>
+        <a href={`${urlLink}`} target="_blank" rel="noopener noreferrer">
+  <Box position="relative">
+    <Image src={coverImage} alt={title} width={600} height={295} />
+    <Box
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+      backgroundColor="rgba(128, 128, 128, 0.4)"
+      opacity={0}
+      _hover={{ opacity: 1 }}
+      transition="opacity 0.3s ease"
+    />
+  </Box>
+</a>
 
-            <Image
-            src={coverImage} 
-            alt={title} 
-            width={320} 
-            height={280} />
-          <Stack
-            direction={"row"}
-            spacing={4}
-            align={"center"}
-          >
-            <Box mt={"3"} >
-              <Link href={`${Link}`} >
-              <a
-                borderRadius={"md"}
-                width={"l"}
-                justifyContent="center"
-                fontWeight="bold"
-              >
-                Visit {title}&nbsp;
-                <FiExternalLink size={"20"}></FiExternalLink>{" "}
-              </a>
-              
-              </Link>
-            </Box>
-          </Stack>
+            
         </Stack>
       </Box>
     </Container>

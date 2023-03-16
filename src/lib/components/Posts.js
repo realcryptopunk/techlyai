@@ -16,17 +16,19 @@ import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
 import { TbExternalLink } from "react-icons/fa";
 
-const Posts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
+const Posts = ({ slug, coverImage, emoji, title, excerpt, type, type2 }) => {
   const lines = excerpt.split("\n");
   const limitedExcerpt =
     lines.slice(0, 3).join("\n") + (lines.length > 3 ? "\n..." : "");
 
   return (
-    <Link href={`${slug}`}
-           _hover={{
-              textDecor: "none",
-            }}
-            role="group">
+    <Link
+      href={`${slug}`}
+      _hover={{
+        textDecor: "none",
+      }}
+      role="group"
+    >
       <Box
         sx={{ background: "rgba(243, 179, 244, 0.2)", borderRadius: 12 }}
         boxShadow="md"
@@ -46,24 +48,40 @@ const Posts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
           flex="2"
         >
           <Stack>
-            <Link href={`/categories/${type}`}>
-              <Box display="flex" alignItems="baseline">
-                {type && (
+            <Box display="flex" alignItems="baseline">
+              <Link href={`/categories/${type}`}>
+                <Box display="flex" alignItems="baseline">
+                  {
+                    <Button
+                      size={"sm"}
+                      borderRadius="full"
+                      px="2"
+                      sx={{ background: "rgba(241, 10, 138, 0.3)" }}
+                      mr={1}
+                    >
+                  
+                      {type}
+                    </Button>
+                  }
+                </Box>
+              </Link>
+              <Link href={`/categories/${type2}`}>
+                {type2 && (
                   <Button
-                  size={"sm"}
+                    size={"sm"}
                     borderRadius="full"
                     px="2"
-                    bgGradient="linear(to-l, #7928CA, #FF0080)"
-                    mr={1}
+                    sx={{ background: "rgba(125, 39, 200, 0.3)" }}
                   >
-                    {type}
+                    {type2}
                   </Button>
                 )}
-              </Box>
-            </Link>
+              </Link>
+            </Box>
 
             <Box>
               <Box display="flex" alignItems="baseline">
+              {emoji} &nbsp; 
                 <Text
                   color={useColorModeValue("white", "white")}
                   fontSize={"xl"}
@@ -78,7 +96,10 @@ const Posts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
           </Stack>
           <Stack mt={6} spacing={4} align={"center"} width="100%" pb="3">
             <Box>
-              <Button  sx={{ background: "rgba(0, 0, 0, 0.3)"}}  fontWeight="medium">
+              <Button
+                sx={{ background: "rgba(0, 0, 0, 0.3)" }}
+                fontWeight="medium"
+              >
                 Learn More
               </Button>
             </Box>

@@ -11,10 +11,12 @@ import {
 import Slugpostright from "../src/lib/components/Slugpostright";
 import Link from "next/link";
 import Footer from "../src/lib/components/Footer";
+import SimTools from "../src/lib/components/SimTools";
 import {
   getPosts,
   getPostBySlug,
   getAllPosts,
+  getPostsByCategory
 } from "../src/lib/services/getPosts";
 import Slugpostleft from "../src/lib/components/Slugpostleft";
 
@@ -36,9 +38,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   let data = null;
+  let simTools = [];
   try {
     const post = await getPostBySlug(`{slug} = "${params.slug}"`);
     data = post[0].fields;
+    
+    // Fetch posts with the same category
+    const categoryPosts = await getPostsByCategory(`{type} = "${data.type}"`);
+    simTools = categoryPosts.map(post => post.fields).filter(post => post.slug !== params.slug);
   } catch (err) {
     console.error("error", err);
   }
@@ -46,11 +53,12 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       data,
+      simTools,
     },
   };
 }
 
-export default function PostPage({ data }) {
+export default function PostPage({ data, simTools }) {
   
   return (
     <Container
@@ -82,16 +90,17 @@ export default function PostPage({ data }) {
             
               coverImage={data.toolImg} 
               title={data.title}
-              Link={data.Link} />
+              urlLink={data.urlLink} />
 
               <Slugpostright
-                
+                emoji={data.emoji}
                 title={data.title}
                 excerpt={data.paragraph}
                 type={data.type}
                 pricingModel={data.pricingModel}
               />
             </Stack>
+            <SimTools posts={simTools} />
           </Container>
         </Flex>
       </Container >

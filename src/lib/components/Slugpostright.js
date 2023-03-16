@@ -18,7 +18,7 @@ import { useColorModeValue } from "@chakra-ui/react";
 import { blogDashboard } from "../../../styles/customTheme";
 import { FaParagraph, TbExternalLink } from "react-icons/fa";
 
-const Slugpostright = ({ coverImage, title, excerpt, type, pricingModel }) => {
+const Slugpostright = ({ coverImage, title, excerpt, type, pricingModel,emoji }) => {
   return (
     <Container py="5" flex="1">
       <Box>
@@ -35,9 +35,9 @@ const Slugpostright = ({ coverImage, title, excerpt, type, pricingModel }) => {
                   fontFamily={"body"}
                 >
                   {title}
+                  &nbsp;{emoji} 
                 </Heading>
               </Box>
-
               <Text mt={1} mb={1}>
                 {excerpt}
               </Text>

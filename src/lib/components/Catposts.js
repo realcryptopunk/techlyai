@@ -46,21 +46,36 @@ const Catposts = ({ slug, coverImage, title, excerpt, type, type2 }) => {
           flex="2"
         >
           <Stack>
-            <Link href={`/categories/${type}`}>
-              <Box display="flex" alignItems="baseline">
-                {type && (
+          <Box display="flex" alignItems="baseline">
+          <Link href={`/categories/${type}`}>
+                <Box display="flex" alignItems="baseline">
+                  {
+                    <Button
+                      size={"sm"}
+                      borderRadius="full"
+                      px="2"
+                      sx={{ background: "rgba(241, 10, 138, 0.3)" }}
+                      mr={1}
+                    >
+                  
+                      {type}
+                    </Button>
+                  }
+                </Box>
+              </Link>
+              <Link href={`/categories/${type2}`}>
+                {type2 && (
                   <Button
-                  size={"sm"}
+                    size={"sm"}
                     borderRadius="full"
                     px="2"
-                    bgGradient="linear(to-l, #7928CA, #FF0080)"
-                    mr={1}
+                    sx={{ background: "rgba(125, 39, 200, 0.3)" }}
                   >
-                    {type}
+                    {type2}
                   </Button>
                 )}
+              </Link>
               </Box>
-            </Link>
 
             <Box>
               <Box display="flex" alignItems="baseline">
