@@ -1,22 +1,25 @@
 import React from "react";
-import { Box, Heading, Text, HStack, Image } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, Image, useBreakpointValue } from "@chakra-ui/react";
 import Link from "next/link";
 
 const Simtools = ({ posts }) => {
+  const direction = useBreakpointValue({ base: "column", md: "row" });
+
   return (
     <Box>
       <Heading fontWeight="bold" fontSize="xl">
         Similar AI Tools
       </Heading>
-      <HStack spacing={4} alignItems="start">
+      <Flex direction={direction} spacing={{ base: 5, md: 2 }} alignItems="center">
         {posts.map((post) => {
-          const maxLength = 100;
+          const maxLength = 99;
           const limitedExcerpt =
             post.paragraph.length > maxLength
               ? post.paragraph.slice(0, maxLength) + "..."
               : post.paragraph;
           return (
             <Box
+              p={3}
               sx={{ background: "rgba(243, 179, 244, 0.2)", borderRadius: 12 }}
               boxShadow="md"
               _groupHover={{
@@ -35,7 +38,7 @@ const Simtools = ({ posts }) => {
                   borderRadius={"xl"}
                   src={post.toolImg}
                   alt={post.title}
-                  width={217}
+                  width={390}
                   height={217}
                 />
               </Link>
@@ -47,7 +50,7 @@ const Simtools = ({ posts }) => {
             </Box>
           );
         })}
-      </HStack>
+      </Flex>
     </Box>
   );
 };
