@@ -13,6 +13,7 @@ import {
 import { useColorModeValue } from "@chakra-ui/react";
 import Blogpage from "./Blogpage";
 import Footer from "./Footer";
+import Link from "next/link";
 
 export const Heropage = () => {
   return (
@@ -86,6 +87,17 @@ export const Heropage = () => {
               </Button>
             
             </Stack>
+            <Link href="/aitools">
+            <Button
+                variant="ghost"
+                bgGradient="linear(to-l, #7928CA, #FF0080)"
+                bgClip="Button"
+                size="lg"
+              >
+                Explore The Latest AI Tools
+              </Button>
+            </Link>
+            
             
          
           </Box>

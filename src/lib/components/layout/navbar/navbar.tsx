@@ -16,9 +16,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
-import Link from "next/link";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
-// const Links = ["Dashboard", "Projects", "Team"];
+import Link from "next/link";// const Links = ["Dashboard", "Projects", "Team"];
 import navStyles from "./navbar.module.css";
 const Links = [
   {
@@ -97,7 +95,7 @@ export default function Navbar() {
             </Button>
            
             </Link>
-            <ColorModeSwitcher></ColorModeSwitcher>
+        
           </Flex>
         </Flex>
 
