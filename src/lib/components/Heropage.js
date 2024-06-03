@@ -54,9 +54,7 @@ export const Heropage = () => {
               maxW="lg"
             >
               AI is changing the world, and we're here to help you stay ahead of
-              the curve. Join us to get your daily dose of AI. We'll provide you
-              with a juicy 3-minute newsletter on everything AI. (Promise you
-              it's not boring!)
+              the curve. 
             </Text>
                
                   
@@ -69,22 +67,7 @@ export const Heropage = () => {
               width="full"
               py={5}
             >
-              <Input
-                size="lg"
-                type="email"
-                placeholder="Enter your email"
-                maxW={{
-                  md: "sm",
-                }}
-              />
-              <Button
-                variant="ghost"
-                bgGradient="linear(to-l, #7928CA, #FF0080)"
-                bgClip="Button"
-                size="lg"
-              >
-                Subscribe
-              </Button>
+            
             
             </Stack>
             <Link href="/aitools">
